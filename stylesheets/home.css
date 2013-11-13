@@ -1,0 +1,9 @@
+#button_about {
+	cursor: pointer;
+}
+
+
+#button_about:hover {
+	background-image: url("../images/home/about_hover.png");
+}
+
