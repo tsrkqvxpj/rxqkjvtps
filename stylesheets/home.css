@@ -1,9 +1,43 @@
-#button_about {
-	cursor: pointer;
+
+#top {
+	overflow: hidden;
 }
 
+#button_about {
+	float: right;
+	cursor: pointer;
+}
 
 #button_about:hover {
 	background-image: url("../images/home/about_hover.png");
 }
 
+#button_contact {
+	float: right;
+	cursor: pointer;
+}
+
+#button_contact:hover {
+	background-image: url("../images/home/about_hover.png");
+}
+
+
+
+
+#center {
+	margin: auto;
+	width: 800px;
+	text-align: center;
+}
+#logo {
+	margin: auto;
+	font-size: 70px;
+}
+
+#button_search {
+	cursor: pointer;
+}
+
+#button_search:hover {
+	background-image: url("../images/home/search_hover.png");
+}
