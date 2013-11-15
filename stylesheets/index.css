@@ -3,6 +3,12 @@
 	src: url(../fonts/Quicksand-Regular.otf);
 }
 
+@font-face {
+	font-family: Quicksand-Bold;
+	src: url(../fonts/Quicksand-Bold.otf);
+}
+
+
 body {
 	font-family: Quicksand, sans-serif;
 }
