@@ -1,23 +1,30 @@
+.autocomplete {
+    width: 47%;
+    left: 20%;
+}
+
 ul.autocomplete {
     display: none;
     position: absolute;
-    background-color: #f8f8f8;
+    background-color: #FFFFFF;
     margin: 0;
     padding: 3px 0;
+    margin-top: 10px;
+    border: 2px solid lightgrey;
 }
 
-    ul.autocomplete li {
-        list-style: none;
-        margin: 0;
-        padding: 5px 7px;
-    }
+ul.autocomplete li {
+    list-style: none;
+    margin: 0;
+    padding: 5px 7px;
+}
 
-        ul.autocomplete li.active, ul.autocomplete li:hover {
-            cursor: pointer;
-            background-color: #d3d3d3;
-        }
+ul.autocomplete li.active, ul.autocomplete li:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+}
 
-        ul.autocomplete li a {
-            color: #3d3d3d;
-            text-decoration: none;
-        }
+ul.autocomplete li a {
+    color: #3d3d3d;
+    text-decoration: none;
+}

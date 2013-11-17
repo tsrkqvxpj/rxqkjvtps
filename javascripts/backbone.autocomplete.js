@@ -23,7 +23,7 @@ var AutoCompleteItemView = Backbone.View.extend({
 var AutoCompleteView = Backbone.View.extend({
     tagName: "ul",
     className: "autocomplete",
-    wait: 50,
+    wait: 5,
 
     queryParameter: "query",
     minKeywordLength: 0,
@@ -38,8 +38,6 @@ var AutoCompleteView = Backbone.View.extend({
     render: function () {
         // disable the native auto complete functionality
         this.input.attr("autocomplete", "off");
-
-        this.$el.width(this.input.outerWidth());
 
         this.input
             .keyup(_.bind(this.keyup, this))
@@ -56,13 +54,16 @@ var AutoCompleteView = Backbone.View.extend({
         if (event.keyCode == 27) return this.hide();
     },
 
-    keyup: function () {
-        var keyword = this.input.val();
-        if (this.isChanged(keyword)) {
-            if (this.isValid(keyword)) {
-                this.filter(keyword);
-            } else {
-                this.hide()
+    keyup: function (event) {
+
+        if ((event.keyCode != 40) && (event.keyCode != 38)) {
+            var keyword = this.input.val();
+            if (this.isChanged(keyword)) {
+                if (this.isValid(keyword)) {
+                    this.filter(keyword);
+                } else {
+                    this.hide()
+                }
             }
         }
     },
@@ -103,11 +104,13 @@ var AutoCompleteView = Backbone.View.extend({
         if (siblings.eq(index).length) {
             current.removeClass("active");
             siblings.eq(index).addClass("active");
+            this.input.val(siblings.eq(index).children(0).text());
         }
         return false;
     },
 
     onEnter: function () {
+
         this.$el.children(".active").click();
         return false;
     },
