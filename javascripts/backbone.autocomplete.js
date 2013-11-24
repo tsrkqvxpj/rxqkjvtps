@@ -1,6 +1,6 @@
 var AutoCompleteItemView = Backbone.View.extend({
     tagName: "li",
-    template: _.template('<a href="#"><%= label %></a>'),
+    template: _.template('<a href="#map"><%= label %></a>'),
 
     events: {
         "click": "select"
@@ -14,7 +14,10 @@ var AutoCompleteItemView = Backbone.View.extend({
     },
 
     select: function () {
-        this.options.parent.hide().select(this.model);
+
+        var route = "map/" + this.model.id;
+        router.navigate(route, true);
+        //this.options.parent.hide().select(this.model);
         return false;
     }
 
@@ -23,7 +26,7 @@ var AutoCompleteItemView = Backbone.View.extend({
 var AutoCompleteView = Backbone.View.extend({
     tagName: "ul",
     className: "autocomplete",
-    wait: 5,
+    wait: 0,
 
     queryParameter: "query",
     minKeywordLength: 0,
@@ -69,7 +72,7 @@ var AutoCompleteView = Backbone.View.extend({
     },
 
     filter: function (keyword) {
-            var keyword = keyword.toLowerCase();
+        var keyword = keyword.toLowerCase();
         if (this.model.url) {
 
             var parameters = {};
@@ -134,6 +137,7 @@ var AutoCompleteView = Backbone.View.extend({
     },
 
     select: function (model) {
+       // Backbone.history.navigate('map', {trigger: true});
         var label = model.label();
         this.input.val(label);
         this.currentText = label;
@@ -156,6 +160,8 @@ var AutoCompleteView = Backbone.View.extend({
     },
 
     // callback definitions
-    onSelect: function () {}
+    onSelect: function () {
+        alert("H");
+    }
 
 });
